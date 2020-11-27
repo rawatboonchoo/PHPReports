@@ -1,6 +1,6 @@
 <?php
 	header('Content-Type: application/json');
-    include("../condb/condb.php");
+        include("../condb/condb.php");
 
 	$sql = "INSERT INTO department (
         dep_shortname,

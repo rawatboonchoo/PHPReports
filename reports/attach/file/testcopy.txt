@@ -1,0 +1,17 @@
+       user : rbmsupp
+              pw   : supp4488
+
+TOTPROD1 =
+    (DESCRIPTION = (ADDRESS_LIST = ( ADDRESS=(PROTOCOL = TCP)(HOST = 10.1.70.183)(PORT = 1521)))(CONNECT_DATA = (SID = totprod1)))
+
+TOTPROD2 =
+    (DESCRIPTION = (ADDRESS_LIST = ( ADDRESS=(PROTOCOL = TCP)(HOST = 10.1.70.184)(PORT = 1521)))(CONNECT_DATA = (SID = totprod2)))
+
+
+IC_M25_FEB_RBM
+
+
+               SQL       pw :   migr_totbatch
+
+iptv 
+User : totam072 

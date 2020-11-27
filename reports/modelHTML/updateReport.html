@@ -1,0 +1,87 @@
+<!-- Create Report Modal-->
+<div class="modal fade bd-example-modal-lg ui-front" id="modelUpdateReport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="labelPlanID">เลขที่รายงาน : <?=$plan_id?></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+              <form action="" name="frmUpdate" id="frmUpdate" method="post" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                              <label for="">ประเภทงาน</label>
+                              <select class="form-control" id="txtCat_id" name="txtCat_id" onchange="getval(this);">
+                                <option value="0">-- select --</option>
+                                <?php while($cat_view=$result_cat->fetch_object()){?>
+                                <option value="<?=$cat_view->cat_id?>"><?=$cat_view->cat_name?></option>
+                                <?}?>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="">หัวข้อรายงาน <a href="#" data-toggle="tooltip" data-placement="top" title="เพิ่มข้อมูล"><i class="fas fa-plus fa-xs"></i></a></label>                                                          
+                              <input type="text" class="form-control" autocomplete="off" id="txtTypework" name="txtTypework" placeholder="" disabled data-toggle="tooltip" data-placement="top" title="สามากด Spacbar เพื่อโหลดข้อมูล">
+                              <!--  -->
+                              <input type="hidden" id="txtType_id" name="txtType_id" placeholder="" disabled>
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="">วันเริ่มต้น</label>
+                              <input class="form-control" id="txtDes_report_start" name= "txtDes_report_start" data-date-format="mm/dd/yyyy" disabled>                                      
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="">วันสินสุด</label>
+                              <input class="form-control" id="txtDes_report_end" name="txtDes_report_end" data-date-format="mm/dd/yyyy" disabled>
+                            </div>
+
+
+                            <div class="form-group col-md-5" style="display: none">
+                              <label for="">ศูนย์</label>                         
+                    
+                              <input type="text" class="form-control" id="txtPartname" value="<?=$dep_fullname?>" placeholder="ศูนย์" disabled>
+                            </div>  
+                            <div class="form-group col-md-2" style="display: none">
+                              <label for="">รหัสส่วนงาน</label>
+                              <input type="text" class="form-control" id="txtDep_id" name="txtDep_id" value="<?=$dep_id?>" disabled>
+                            </div>
+                            <div class="form-group col-md-3" style="display: none">
+                              <label for="">รหัสรายงาน</label>
+                              <input type="text" class="form-control" id="txtPlan_id" name="txtPlan_id" value="<?=$plan_id?>" disabled>
+                            </div>                           
+                        </div>                        
+                        <div class="form-group">
+                            <label for="">การดำเนินงาน</label>
+                            <textarea  class="form-control" id="txtDes_detail" name="txtDes_detail" placeholder=""></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="">หมายเหตุ</label>
+                            <textarea class="form-control" id="txtDes_note" name="txtDes_note" placeholder=""></textarea>
+                        </div>
+                        <div class="form-group" id="resultFile">
+
+                        </div>
+                        <div class="form-row">
+                          <form method="post" id="fileUplaod" autocomplete="off" enctype="multipart/form-data">
+                            <label for="exampleFormControlFile1">เอกสารแนบ</label>
+                            <input type="hidden" name="fileDep_id" id="fileDep_id" value="<?=$dep_id?>" class="form-control">
+                            <input type="hidden" name="filePlan_id" id="filePlan_id" value="<?=$plan_id?>" class="form-control">
+                            <input type="file" name="file" id="file" class="form-control-file" id="exampleFormControlFile1">                 
+                          </form>
+                        </div>
+
+                        <div class="form-group" id="resultReport">
+
+                        </div>
+
+                    </form>
+        </div>
+        <div class="modal-footer">
+          <label class="mr-auto badge badge-success" id="dateCreate"></label>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+          <button type="button" name="btnUpdateReport" id="btnUpdateReport" class="btn btn-primary">แก้ไขข้อมูล</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- endCreate Report Modal-->

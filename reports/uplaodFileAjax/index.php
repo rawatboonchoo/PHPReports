@@ -47,6 +47,23 @@
 </script>
 <script>
 $(document).ready(function(){
+    $("#file").change(function() {
+                //alert('changed!');
+            //var form = $('form')[0]; // You need to use standard javascript object here
+            //console.log(form);
+            $.ajax({
+            url: './upload.php',
+            type: 'POST',
+            data: new FormData(this.form),
+            contentType: false,       
+            cache: false,             
+            processData:false, 
+
+            success:function(response) {
+                    $("#result").html(response);                    
+            }
+        }); 
+    });
     $("#uploadBtn").click(function(){
         var formData = new FormData(this.form);
        
